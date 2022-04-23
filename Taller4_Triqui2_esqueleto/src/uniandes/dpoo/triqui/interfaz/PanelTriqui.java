@@ -37,6 +37,8 @@ public class PanelTriqui extends JPanel implements MouseListener
 
 	public void actualizarTablero(Triqui triqui)
 	{
+		this.mundoTriqui = triqui;
+		this.setSize(getWidth()+1, getHeight()+1);
 		repaint();
 	}
 
@@ -60,6 +62,11 @@ public class PanelTriqui extends JPanel implements MouseListener
 		finX = getWidth()*0.8;
 		anchoTablero = finX-origenX;
 		altoTablero = finY-origenY;
+
+		if (turno== XS)
+			g2d.setColor(Color.pink);
+		else
+			g2d.setColor(Color.CYAN);
 
 		if (fila == 0 && columna == 0 ) {
 			if (turno == XS){
@@ -136,6 +143,9 @@ public class PanelTriqui extends JPanel implements MouseListener
 			else if (turno == OS) {
 				g2d.drawOval((int) (origenX+anchoTablero*0.1666*9/2) , (int) (origenY+altoTablero*0.1666*9/2) , (int) (getHeight()*getWidth()*0.00014), (int) ((getHeight()*getWidth())*0.00014));
 			}
+		}else {
+			mundoTriqui = new Triqui();
+			repaint();
 		}
 	}
 
@@ -147,8 +157,9 @@ public class PanelTriqui extends JPanel implements MouseListener
 		finX = getWidth()*0.8;
 		anchoTablero = finX-origenX;
 		altoTablero = finY-origenY;
-		BasicStroke stroke = new BasicStroke(3f);
+		BasicStroke stroke = new BasicStroke(5f);
 		g2d.setStroke(stroke);
+		g2d.setColor(Color.BLACK);
 
         g2d.drawLine((int) (origenX+0.33*anchoTablero), (int) origenY, (int) (origenX+0.33*anchoTablero), (int) finY);
         g2d.drawLine((int) (origenX+0.66*anchoTablero), (int) origenY, (int) (origenX+0.66*anchoTablero), (int) finY);
@@ -194,7 +205,6 @@ public class PanelTriqui extends JPanel implements MouseListener
 			else if (turno == OS)
 				turno = XS;
 		}
-		repaint();
 
 	}
 
