@@ -27,6 +27,10 @@ public class PanelBotones extends JPanel implements ActionListener
 
 	}
 
+    // -----------------------------------------------------------------
+    // Metodos
+    // -----------------------------------------------------------------
+
 	public void actionPerformed(ActionEvent e)
 	{
 		ventanaTriqui.reiniciar();
