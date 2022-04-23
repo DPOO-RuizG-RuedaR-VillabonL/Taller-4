@@ -21,17 +21,10 @@ public class PanelBotones extends JPanel implements ActionListener
 	private static final String BOTON_MODO_OPRIMIDO = "Oprimido";
 
 	// -----------------------------------------------------------------
-    // Atributos
-    // -----------------------------------------------------------------
-
-    /**
-     * Es una referencia a la clase principal de la interfaz.
-     */
-	private VentanaTriqui principal;
-
-	// -----------------------------------------------------------------
     // Atributos de Interfaz
     // -----------------------------------------------------------------
+
+    private VentanaTriqui principal; 
 
     /**
      * Es el boton para reiniciar el juego
@@ -45,26 +38,25 @@ public class PanelBotones extends JPanel implements ActionListener
 	
 	public PanelBotones(VentanaTriqui padre)
 	{
-		principal = padre;
+        this.principal = padre;
         setLayout(new GridLayout(1,2));
 
 		// Inicializa el botonReiniciar
 		botonReiniciar = new JButton(); 
         botonReiniciar.setToolTipText("Reiniciar");
-        botonReiniciar.setActionCommand(BOTON_MODO_OPRIMIDO);
-        botonReiniciar.addActionListener(this);
-        botonReiniciar.setContentAreaFilled( false );
-        botonReiniciar.setEnabled( false );
-        add(botonReiniciar);
+        this.add(botonReiniciar);
 	}
+
+    // -----------------------------------------------------------------
+    // Metodos
+    // -----------------------------------------------------------------
 
 	public void actionPerformed(ActionEvent e)
 	{
-		
 	}
 
 	public void actualizarCantidadJugadas(int numero)
 	{
-		etiquetaJugadas.setText( "Quedan " + numero + " minas" );
+		etiquetaJugadas.setText( "Es la jugada ");
 	} 
 }
